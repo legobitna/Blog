@@ -1,0 +1,63 @@
+{%extends "layout.html"%}
+
+{%block content%}
+
+
+
+<div class="col-md-8 order-md-1 container">
+  <h4 class="mb-3">Sign In </h4>
+  <form class="needs-validation" novalidate method="POST">
+        <!-- 이거없으면 에러가난다 CSRF 없다는에러 -->
+    {{ form.hidden_tag() }}  
+    <div class="mb-3">
+      <label for="username">{{ form.username.label }}</label>
+      <div class="input-group">
+    
+        {{ form.username( class="form-control", placeholder="Username" )}}
+        <div class="invalid-feedback" style="width: 100%;">
+          Your username is required.
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="username">{{ form.email.label }} </label>
+      <div class="input-group">
+      {{ form.email(class="form-control", placeholder="abcd@gmail.com" )}}
+      <div class="invalid-feedback">
+        Please enter a valid email address
+      </div>
+    </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="username">{{ form.password.label }}</label>
+      <div class="input-group">
+      {{ form.password(class="form-control", placeholder="Password" )}}
+      <div class="invalid-feedback">
+        Please enter a valid email address
+      </div>
+    </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="username"> {{ form.confirm.label }} </label>
+      <div class="input-group">
+      {{ form.confirm(class="form-control", placeholder="input password again" )}}
+      <div class="invalid-feedback">
+        Please enter a valid email address
+      </div>
+    </div>
+    </div>
+
+   
+    <hr class="mb-4">
+    {{ form.submit(class="btn btn-primary btn-lg btn-block") }}
+  </form>
+</div>
+</div>
+
+
+
+
+{%endblock%}
